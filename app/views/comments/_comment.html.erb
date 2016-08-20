@@ -1,15 +1,15 @@
-<p>
-  <strong>Commenter:</strong>
-  <%= comment.commenter %>
-</p>
 
-<p>
-  <strong>Comment:</strong>
-  <%= comment.body %>
-</p>
+<div class="media">
+  <div class="media-left media-middle">
+    <!-- <a href="#"> -->
+      <!-- <img class="media-object" src="..." alt="..."> -->
+    <!-- </a> -->
+  </div>
+  <div class="media-body">
+    <h4 class="media-heading"><%= comment.commenter %></h4>
+    <p>
+      <%= comment.body %>
+    </p>
 
-<p>
-  <%= link_to 'Destroy Comment', [comment.article, comment],
-               method: :delete,
-               data: { confirm: 'Are you sure?' } %>
-</p>
+  </div>
+</div>

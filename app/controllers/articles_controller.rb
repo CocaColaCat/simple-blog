@@ -1,5 +1,6 @@
 class ArticlesController < ApplicationController
 
+  before_action :fetch_latest_articles
  # http_basic_authenticate_with name: "dhh", password: "secret", except: [:index, :show]
 
   # 进入创建博文的页面
@@ -50,6 +51,10 @@ class ArticlesController < ApplicationController
   private
     def article_params
       params.require(:article).permit(:title, :text)
+    end
+
+    def fetch_latest_articles
+      @latest_articles = Article.order(created_at: :desc).limit(3)
     end
 
 end

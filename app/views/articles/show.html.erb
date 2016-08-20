@@ -1,19 +1,21 @@
-<p>
-  <strong>Title:</strong>
-  <%= @article.title %>
-</p>
+<% content_for :page_header do %>
+  <div class="blog-header">
+    <h2><%= @article.title %></h2>
+    <%= link_to '返回列表', articles_path %>
+    <!-- <%= link_to 'Edit', edit_article_path(@article) %> -->
+  </div>
+<% end %>
 
-<p>
-  <strong>Text:</strong>
-  <%= @article.text %>
-</p>
+<div class="col-sm-8 blog-main">
+  <p><%= @article.text %></p>
 
-<h2>Comments</h2>
-<%= render @article.comments %>
+  <div class="page-header">
+    <h3>访客留言</h3>
+  </div>
+  <%= render @article.comments %>
 
-<h2>Add a comment:</h2>
-<%= render "comments/form" %>
-
-<%= link_to '返回', articles_path %>
-
-<%= link_to 'Edit', edit_article_path(@article) %>
+  <div class="page-header">
+    <h3>添加评论</h3>
+  </div>
+  <%= render "comments/form" %>
+</div>
