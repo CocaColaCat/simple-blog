@@ -1,5 +1,7 @@
 class ArticlesController < ApplicationController
 
+ # http_basic_authenticate_with name: "dhh", password: "secret", except: [:index, :show]
+
   # 进入创建博文的页面
   def new
     @article = Article.new
