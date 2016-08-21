@@ -43,13 +43,19 @@
         <nav class="blog-nav">
           <a class="blog-nav-item active" href="#">Home</a>
           <a class="blog-nav-item" href="#">关于</a>
+          <% if current_user %>
+            <%= link_to "登出", logout_path, class: "blog-nav-item pull-right" %>
+          <% else %>
+            <%= link_to "登录", new_session_path, class: "blog-nav-item pull-right" %>
+          <% end %>
         </nav>
       </div>
     </div>
 
     <div class="container">
+      <!-- <p id="notice"><%= notice %></p> -->
       <%= yield :page_header %>
-       <div class="row">
+      <div class="row">
         <%= bootstrap_flash %>
         <%= yield %>
         <%= render 'layouts/sidebar' %>

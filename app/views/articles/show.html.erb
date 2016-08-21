@@ -2,7 +2,9 @@
   <div class="blog-header">
     <h2><%= @article.title %></h2>
     <%= link_to '返回列表', articles_path %>
-    <!-- <%= link_to 'Edit', edit_article_path(@article) %> -->
+    <% if current_user %>
+      <%= link_to '修改', edit_article_path(@article) %>
+    <% end %>
   </div>
 <% end %>
 

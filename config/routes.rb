@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+
+  resources :sessions, only: [:new, :create]
+
+  # delete 'logout', to: :destroy, controller: 'sessions'
+  get 'logout', to: 'sessions#destroy', as: :logout
+
   resources :articles do
     resources :comments
   end
